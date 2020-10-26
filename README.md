@@ -1,24 +1,24 @@
-# Usage
-
-retrive word emb from large word emb
-
-```
-python sys.argv[0] --fword wordlist --femb word_emb_file --fout reduced_emb_file
-```
-
 ## require
 
 fire, tqdm
 
-## wordlist
+## Usage
 
-relatively small
+retrive word emb from large word emb
+
+```
+python ./reduce_emb/reduce_emb.py --fword wordlist --femb word_emb_file --fout reduced_emb_file
+```
+
+### wordlist
+
+relatively small txt
 
 each word perline
 
-## word_emb_file
+### word_emb_file
 
-very large
+very large txt
 
 optional `wordnum:num emb_dim:num` for the first line, see [./tests/Tencent_AILab_ChineseEmbedding_sample](./tests/Tencent_AILab_ChineseEmbedding_sample) for example. glove doesnt have this line
 
@@ -28,7 +28,7 @@ read until empty line
 
 ## reduced_emb_file
 
-where to output, format will like golve without the first line
+txt where to output, format will like golve without the first line
 
 ## want to release to pip 
 
