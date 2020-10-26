@@ -3,4 +3,4 @@
 #################################################
 # file to edit: ./nb/common.ipynb
 from xs_lib.common import *
-export_notebook = Export_notebook('jupyter_dev_template', working_dir_tag='notebooks')
+export_notebook = Export_notebook('reduce_emb', working_dir_tag='notebooks')

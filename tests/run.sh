@@ -10,11 +10,29 @@ then
     conda activate test
     echo "done: conda activated test"
 fi
+_TRAVIS=$TRAVIS
+export TRAVIS=true
 
-# TRAVIS=true
+# 生成文件
+python test_reduce_emb.py
+
+# test_emb_file.txt
+# test_fword_list.txt
+# test_main_output.txt
+
+# export TRAVIS=$_TRAVIS
 
 # run test
-for file in ./*.py
-do
-	python $file
-done
+python test_reduce_emb.py --femb test_emb_file.txt --fword test_fword_list.txt --fout cli_call_output.txt
+python ../reduce_emb/reduce_emb.py --femb test_emb_file.txt --fword test_fword_list.txt --fout cli_call_output.txt
+
+diff test_main_output.txt cli_call_output.txt && echo "test passed" || echo "pass failed"
+diff test_main_output.txt cli_call_output.txt
+
+echo """</s>
+是
+、""" > Tencent_AILab_ChineseEmbedding_sample_wordlist.txt
+
+python ../reduce_emb/reduce_emb.py --femb Tencent_AILab_ChineseEmbedding_sample.txt --fword Tencent_AILab_ChineseEmbedding_sample_wordlist.txt --fout cli_call_output.txt
+
+

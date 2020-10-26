@@ -1,22 +1,34 @@
-# jupyter_dev_template[![Build Status](https://travis-ci.com/xsthunder/jupyter_dev_template.svg?branch=master)](https://travis-ci.com/xsthunder/jupyter_dev_template)
+# Usage
 
-## start
+retrive word emb from large word emb
 
-1. install [xsthunder/xs_lib: personal python lib](https://github.com/xsthunder/xs_lib)
+```
+python sys.argv[0] --fword wordlist --femb word_emb_file --fout reduced_emb_file
+```
 
-2. clone this
+## require
 
-## rename to start
+fire, tqdm
 
-all set to the same name, with `_` instead of `-`
+## wordlist
 
-1. [project_name.txt](./configp/roject_name.txt)
+relatively small
 
-2. change dir name `./jupyter_dev_template`
+each word perline
 
-3. change `export_notebook = Export_notebook('jupyter_dev_template', working_dir_tag='notebooks')` in  [./notebooks/common.ipynb](./notebooks/common.ipynb)
+## word_emb_file
 
-4. change `from jupyter_dev_template.common import export_notebook` in[./notebooks/common.ipynb](./notebooks/common.ipynb)
+very large
+
+optional `wordnum:num emb_dim:num` for the first line, see [./tests/Tencent_AILab_ChineseEmbedding_sample](./tests/Tencent_AILab_ChineseEmbedding_sample) for example. glove doesnt have this line
+
+`word:num dim0 dim1 [<dim2, >]` for rest
+
+read until empty line
+
+## reduced_emb_file
+
+where to output, format will like golve without the first line
 
 ## want to release to pip 
 
