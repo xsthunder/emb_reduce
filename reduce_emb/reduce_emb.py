@@ -66,5 +66,6 @@ def main(femb, fword, fout):
     fpout.close()
 
 import fire
-if not xs_lib.common.IN_JUPYTER and __name__=="__main__":
+import os
+if not xs_lib.common.IN_JUPYTER and __name__=="__main__" and os.environ.get("STOP_FIRE", "") != "true":
     fire.Fire(main)

@@ -130,5 +130,6 @@ test_main_output = 'test_main_output.txt'
 main(test_emb_file, test_fword_list, test_main_output)
 
 import fire
-if not xs_lib.common.IN_JUPYTER and __name__=="__main__":
+import os
+if not xs_lib.common.IN_JUPYTER and __name__=="__main__" and os.environ.get("STOP_FIRE", "") != "true":
     fire.Fire(main)
