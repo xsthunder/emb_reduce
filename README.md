@@ -1,4 +1,6 @@
-## require
+DONT USE THIS, use gensim instead, but emb_reduce may caching and gensim may not
+
+## Require
 
 fire, tqdm
 
